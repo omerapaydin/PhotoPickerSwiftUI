@@ -16,6 +16,16 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            
+            if let data = data {
+                if let selectedImage = UIImage(data: data) {
+                    Spacer()
+                    Image(uiImage: selectedImage)
+                        .resizable()
+                        .frame(width: 200, height: 200, alignment: .center)
+                }
+            }
+            Spacer()
            
             PhotosPicker(selection: $selectedItem,maxSelectionCount: 1,matching: .images ){
                 Text("Selected")
